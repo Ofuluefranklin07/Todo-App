@@ -1,0 +1,130 @@
+/* ...existing code... */
+:root{
+  --bg:#0f172a;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#38bdf8;
+  --glass: rgba(255,255,255,0.04);
+}
+
+.pp-root{
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #e6eef8;
+  background: linear-gradient(180deg, #07112a 0%, rgba(10,20,35,0.8) 100%);
+  min-height:100vh;
+  padding:48px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:48px;
+}
+
+/* HERO */
+.pp-hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  background: linear-gradient(90deg, rgba(56,189,248,0.06), rgba(99,102,241,0.03));
+  padding:28px;
+  border-radius:14px;
+  position:relative;
+  overflow:hidden;
+  box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+  animation: fadeInUp 450ms ease both;
+}
+.pp-hero-inner{ max-width:740px; }
+.pp-name{ font-size:2rem; margin:0 0 6px; letter-spacing: -0.5px;}
+.pp-title{ margin:0; color:var(--muted); }
+
+/* decorative blob */
+.pp-hero-decor{
+  width:220px; height:220px; border-radius:50%;
+  position:absolute; right:-60px; top:-60px;
+  background: radial-gradient(circle at 30% 30%, rgba(56,189,248,0.18), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(99,102,241,0.14), transparent 40%);
+  filter: blur(18px);
+  transform: rotate(12deg);
+  animation: float 6s ease-in-out infinite;
+  pointer-events:none;
+}
+
+/* sections */
+.pp-section{ background: transparent; border-radius:10px; padding:8px 0; }
+.section-title{ color:#dbeafe; margin:0 0 12px; font-size:1.1rem; }
+
+/* about */
+.about-text{ color:var(--muted); max-width:800px; line-height:1.6; }
+
+/* projects grid */
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap:18px;
+}
+
+/* card */
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  padding:12px;
+  border-radius:12px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  transform: translateY(6px);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.5);
+  animation: fadeInUp 420ms ease both;
+  will-change: transform, box-shadow;
+  cursor: default;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(2,6,23,0.6);
+}
+
+/* media thumbnail */
+.card-media{ width:72px; height:72px; flex:0 0 72px; display:flex; align-items:center; justify-content:center; border-radius:10px; background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(99,102,241,0.08)); }
+.card-thumb{ font-weight:700; color:var(--accent); font-size:1.1rem; }
+
+/* body */
+.card-body{ flex:1; }
+.card-title{ margin:0 0 6px; font-size:1rem; }
+.card-desc{ margin:0 0 8px; color:var(--muted); font-size:0.92rem; line-height:1.4; }
+.card-tags{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+.tag{ font-size:0.72rem; color:var(--muted); padding:4px 8px; border-radius:999px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); }
+
+.card-actions{ display:flex; gap:8px; }
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px; border-radius:8px; text-decoration:none; color:var(--muted);
+  border:1px solid rgba(255,255,255,0.04); background:transparent; font-size:0.88rem;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+.btn.small{ padding:6px 10px; font-size:0.82rem; }
+.btn.primary{ background:var(--accent); color:#062340; border: none; box-shadow: 0 6px 18px rgba(56,189,248,0.08); }
+.btn.ghost{ background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04); }
+
+.btn:hover{ transform: translateY(-3px); }
+
+/* footer */
+.pp-footer{ text-align:center; color:var(--muted); padding:18px 0 6px; }
+
+/* animations */
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(10px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes float {
+  0% { transform: translateY(0) rotate(12deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
+  100% { transform: translateY(0) rotate(12deg); }
+}
+
+/* responsive tweaks */
+@media (max-width:720px){
+  .pp-hero{ flex-direction:column; align-items:flex-start; }
+  .pp-hero-decor{ right:-100px; top:-80px; width:160px; height:160px; }
+  .card{ flex-direction:row; }
+}
+/* ...existing code... */
