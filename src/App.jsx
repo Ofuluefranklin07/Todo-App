@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Todo from "./assets/Components/Todo";
 
@@ -9,6 +9,9 @@ import Header from "./assets/Components/Header";
 function App() {
   const [task, setTask] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
+  useEffect(() => {
+    document.title = "My Todo App";
+  }, []);
 
   // ✅ Add a new note
   function handleTask(note) {
@@ -58,9 +61,6 @@ function App() {
       </div>
     </>
   );
-
-
-
 }
 
 export default App;
