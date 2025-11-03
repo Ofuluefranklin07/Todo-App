@@ -40,7 +40,6 @@ function App() {
     <>
       <Header />
 
-      {/* ✅ Pass editing state & handlers to Todo */}
       <Todo
         onSubmit={handleTask}
         editingTask={editingTask}
@@ -60,7 +59,7 @@ function App() {
     </>
   );
 
-  
+
 
 }
 
